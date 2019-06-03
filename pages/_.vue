@@ -9,7 +9,7 @@
         starter pack for API connected frontend
       </h2>
       <div class="links">
-        <nuxt-link to="/about-us" class="button--green">About Us</nuxt-link>
+        <nuxt-link to="/" class="button--green">Home</nuxt-link>
         <a
           href="https://nuxtjs.org/"
           target="_blank"
@@ -33,7 +33,11 @@ export default {
   components: {
     Logo
   },
-  layout: 'default',
+  layout (context) {
+    //you have to call the context here directly
+    //access to mapState is not set yet
+    return context.store.state.pageData.acf.template;
+  },
   computed: {
     ...mapState({
       pageData: state => state.pageData
@@ -43,7 +47,6 @@ export default {
 </script>
 
 <style>
-small { font-size: 50%; }
 .container {
   margin: 0 auto;
   min-height: 100vh;

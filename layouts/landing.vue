@@ -1,8 +1,8 @@
 <template>
-  <main class="dev">
+  <main class="landing">
     <header>
       <navbar />
-      <div class="templateID"><code>Template: Default</code></div>
+      <div class="templateID"><code>Landing</code></div>
     </header>
     <nuxt />
   </main>
@@ -20,8 +20,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-.landing h1 { color:red; }
-.templateID { position: fixed; top:20px; right:20px; color:grey; }
+
 *,
 *:before,
 *:after {
