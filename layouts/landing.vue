@@ -2,7 +2,7 @@
   <main class="landing">
     <header>
       <navbar />
-      <div class="templateID"><code>Landing</code></div>
+      <div class="templateID"><code>Template: Landing</code></div>
     </header>
     <nuxt />
   </main>
