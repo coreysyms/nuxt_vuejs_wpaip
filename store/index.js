@@ -2,16 +2,25 @@ import axios from 'axios';
 
 export const state = () => ({
   apiBaseURL: 'http://35.231.46.205/wp-json/wp/v2/',
-  mainNav: null,
-  pageData: null
+  headerNav: null,
+  footerNav: null,
+  pages: null
 })
 
 export const mutations = {
-  set_mainNav (store, data) {
-    store.mainNav = data
+  set_headerNav (store, data) {
+    var groups = data.reduce(function (r, a) {
+        r[a.menu_item_parent] = r[a.menu_item_parent] || [];
+        r[a.menu_item_parent].push(a);
+        return r;
+    }, Object.create(null));
+    store.headerNav = groups;
   },
-  set_pageData (store, data) {
-    store.pageData = data
+  set_footerNav (store, data) {
+    store.footerNav = data;
+  },
+  set_pages (store, data) {
+    store.pages = data;
   }
 }
 
@@ -20,10 +29,11 @@ export const actions = {
   //and any other single request items should also go here
 
   //perhaps grab all pages data here? and just reference in your middleware
-  async nuxtServerInit ({ commit }) {
-    await axios.get('http://35.231.46.205/wp-json/wp/v2/pages?slug=about-us')
+  async nuxtServerInit ({ commit }, { store }) {
+    await axios.get(store.state.apiBaseURL + 'initroutes/navigation')
     .then((res) => {
-      commit('set_mainNav', res.data[0]);
+      commit('set_headerNav', res.data.headerNav);
+      commit('set_footerNav', res.data.footerNav);
     })
   }
 }

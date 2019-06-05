@@ -10,7 +10,7 @@ export default function ({ route, store, error }) {
       return axios.get(store.state.apiBaseURL + 'pages?slug=' + slug)
       .then((res) => {
             if (res.status === 200 && res.data.length >= 1) {
-                  store.commit('set_pageData', res.data[0]);
+                  store.commit('set_pages', res.data[0]);
             } else {
                   //if the api connects but there is no actual content 404
                   error({ statusCode: 404, message: 'Connection OK: But Page Not Found'})

@@ -36,7 +36,7 @@ export default {
   layout: 'default',
   computed: {
     ...mapState({
-      pageData: state => state.pageData
+      pageData: state => state.pages
     })
   }
 }
