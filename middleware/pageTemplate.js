@@ -12,12 +12,12 @@ export default function ({ route, store, error }) {
             if (res.status === 200 && res.data.length >= 1) {
                   store.commit('set_pageData', res.data[0]);
             } else {
-                  //failsafe
+                  //if the api connects but there is no actual content 404
                   error({ statusCode: 404, message: 'Connection OK: But Page Not Found'})
             }
       })
       .catch((e) => {
-            //most errors catch here
+            //server connection errors here
             error({ statusCode: 500, message: 'Connection Error' })
       })
 }
