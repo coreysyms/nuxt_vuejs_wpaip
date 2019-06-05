@@ -4,11 +4,16 @@ export const state = () => ({
   apiBaseURL: 'http://35.231.46.205/wp-json/wp/v2/',
   headerNav: null,
   footerNav: null,
-  pages: null
+  pages: null,
+  page: null
 })
 
 export const mutations = {
   set_headerNav (store, data) {
+    //since WP returns a single dimention array
+    //children are at the same "level" as parents
+    //so we need to group the array into object arrays
+    //id'ed by the parent menu id and match on that in the template
     var groups = data.reduce(function (r, a) {
         r[a.menu_item_parent] = r[a.menu_item_parent] || [];
         r[a.menu_item_parent].push(a);
@@ -17,23 +22,36 @@ export const mutations = {
     store.headerNav = groups;
   },
   set_footerNav (store, data) {
-    store.footerNav = data;
+    //since WP returns a single dimention array
+    //children are at the same "level" as parents
+    //so we need to group the array into object arrays
+    //id'ed by the parent menu id and match on that in the template
+    var groups = data.reduce(function (r, a) {
+        r[a.menu_item_parent] = r[a.menu_item_parent] || [];
+        r[a.menu_item_parent].push(a);
+        return r;
+    }, Object.create(null));
+    store.footerNav = groups;
   },
   set_pages (store, data) {
     store.pages = data;
+  },
+  set_page (store, data) {
+    store.page = data;
   }
 }
 
 export const actions = {
-  //main nav should be gotten once and first hence nuxtServerInit
-  //and any other single request items should also go here
-
-  //perhaps grab all pages data here? and just reference in your middleware
+  //grab the main nav from a custom api endpoint on WP
+  //this returns a 2 object array with header nav and footer nav as the default menus
+  //there of course can me more menus if needed
   async nuxtServerInit ({ commit }, { store }) {
-    await axios.get(store.state.apiBaseURL + 'initroutes/navigation')
-    .then((res) => {
-      commit('set_headerNav', res.data.headerNav);
-      commit('set_footerNav', res.data.footerNav);
-    })
+    let [navigation, pagesData] = await Promise.all([
+          axios.get(store.state.apiBaseURL + 'initroutes/navigation'),
+          axios.get(store.state.apiBaseURL + 'pages?per_page=50'),
+    ]);
+    commit('set_headerNav', navigation.data.headerNav);
+    commit('set_footerNav', navigation.data.footerNav);
+    commit('set_pages', pagesData.data);
   }
 }

@@ -1,21 +1,21 @@
 <template>
     <nav>
         <ul>
-            <li class="logo"><nuxt-link to="/"><img src="https://simplecore.intel.com/ai/wp-content/uploads/sites/69/Google_cloud_logo_1_1.png" style="max-height:75px;" /></nuxt-link></li>
+            <li><a href="/">LOGO</a></li>
             <template v-for="navitem in nav[0]">
             <li v-bind:key="navitem.ID">
                 
-                <nuxt-link :to="removeHost(navitem.url)">{{ navitem.title }}</nuxt-link>
+                <a :href="removeHost(navitem.url)">{{ navitem.title }}</a>
                 <ul v-if="childNavItems(navitem.ID)" v-bind:key="'child_set' + navitem.menu_item_parent">
                 
                     <template v-for="navchilditem in childNavItems(navitem.ID)">
                     <li v-bind:key="'child_' + navchilditem.ID">
                        
-                        <nuxt-link :to="removeHost(navchilditem.url)">{{ navchilditem.title }}</nuxt-link>
+                        <a :href="removeHost(navchilditem.url)">{{ navchilditem.title }}</a>
                          <ul v-if="childNavItems(navchilditem.ID)" v-bind:key="'grandchild_set' + navchilditem.menu_item_parent">
                             
                             <li v-for="navgrandchilditem in childNavItems(navchilditem.ID)" v-bind:key="'grandchild_' + navgrandchilditem.ID">
-                                <nuxt-link :to="removeHost(navgrandchilditem.url)">{{ navgrandchilditem.title }}</nuxt-link>
+                                <a :href="removeHost(navgrandchilditem.url)">{{ navgrandchilditem.title }}</a>
                             </li>
                         </ul>
                     </li>
@@ -50,7 +50,7 @@ export default {
     },
     computed: {
     ...mapState({
-      nav: state => state.headerNav
+      nav: state => state.footerNav
     })
   }
 }
