@@ -1,7 +1,6 @@
 <template>
   <section class="container">
     <div>
-      <logo />
       <h1 class="title">
         {{ pageData.acf.meta_short_title }}<br/><small>boilerplate</small>
       </h1>
@@ -26,19 +25,29 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import { mapState } from 'vuex'
 
 export default {
-  components: {
-    Logo
-  },
   layout: 'default',
+  head () {
+		return {
+			title: this.pageData.meta_short_title || 'BridgeBio | people',
+			meta: [
+				{ hid: 'description', name: 'description', content: this.pageData.meta_description || 'Targeting Genetic Diseases at Their Source' },
+				{ property: 'og:title', content: this.pageData.meta_short_title || 'BridgeBio | people' },
+				{ property: 'og:description', content: this.pageData.meta_description || 'Targeting Genetic Diseases at Their Source' },
+				{ property: 'og:type', content: 'website' },
+				{ property: 'og:image', content: this.pageData.meta_share_image ? 'https://bbio2019.azurewebsites.net' + this.pageData.meta_share_image : 'https://bbio2019.azurewebsites.net/wp-content/uploads/2019/02/BridgeBio_Share.png' },
+				{ name: 'twitter:card', content: 'summary_large_image' },
+				{ name: 'twiter:description', content: this.pageData.meta_description || 'Targeting Genetic Diseases at Their Source' },
+        { name: 'twitter:image', content: this.pageData.meta_share_image ? 'https://bbio2019.azurewebsites.net' + this.pageData.meta_share_image : 'https://bbio2019.azurewebsites.net/wp-content/uploads/2019/02/BridgeBio_Share.png' }
+      ]
+		}
+	},
   computed: {
     ...mapState({
       pageData: state => state.page
     })
-  },
-  transition:'page'
+  }
 }
 </script>

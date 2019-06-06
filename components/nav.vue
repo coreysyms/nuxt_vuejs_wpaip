@@ -1,7 +1,7 @@
 <template>
     <nav>
         <ul>
-            <li class="logo"><nuxt-link to="/"><img src="https://simplecore.intel.com/ai/wp-content/uploads/sites/69/Google_cloud_logo_1_1.png" style="max-height:75px;" /></nuxt-link></li>
+            <li class="logo"><nuxt-link to="/" style="text-decoration:none;"><strong style="font-size:225%;">&lt;/&gt;</strong></nuxt-link></li>
             <template v-for="navitem in nav[0]">
             <li v-bind:key="navitem.ID">
                 

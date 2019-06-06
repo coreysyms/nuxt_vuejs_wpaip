@@ -1,7 +1,6 @@
 <template>
   <section class="container">
     <div>
-      <logo />
       <h1 class="title">
         {{ pageData.acf.meta_short_title }}<br/><small>boilerplate</small>
       </h1>
@@ -26,13 +25,9 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import { mapState } from 'vuex'
 
 export default {
-  components: {
-    Logo
-  },
   layout (context) {
     //you have to call the context here directly
     //access to mapState is not set yet
@@ -42,7 +37,6 @@ export default {
     ...mapState({
       pageData: state => state.page
     })
-  },
-  transition:'page'
+  }
 }
 </script>

@@ -68,7 +68,7 @@ css: [
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(position)
-        }, 300)
+        }, 30)
       })
     }
   },

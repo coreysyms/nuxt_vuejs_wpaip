@@ -1,6 +1,11 @@
-nav { position:relative; top: 0; left: 0; width: 100%; background-color: lightblue; padding: 0.5rem 1rem; }
+
+a,
+a:visited,
+a:active { color:#35495e; }
+
+nav { position:relative; top: 0; left: 0; width: 100%; background-color:wheat; padding: 1rem 2rem; }
 nav ul { list-style: none; position: relative; padding: 0; }
-nav > ul { display: flex; justify-content: space-evenly; }
+nav > ul { display: flex; justify-content: space-around; }
 
 nav ul li { position: relative; }
 nav > ul > li:before { content:'\2014'; position:absolute; left:-10px; transform: translateX(-100%); }
@@ -14,8 +19,7 @@ nav li.logo:before { content: normal; padding: 0; }
     nav { position:-webkit-sticky; position: sticky; }
 }
 
-.page-enter-active, .page-leave-active { transition: opacity 0.25s ease; }
-.page-enter, .page-leave-active { opacity: 0; }
+
 
 
 
@@ -32,6 +36,7 @@ html {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    color:#35495e;
   }
   .landing h1 { color:red; }
 
