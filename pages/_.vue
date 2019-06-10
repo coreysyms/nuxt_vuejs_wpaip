@@ -33,7 +33,7 @@ export default {
     //access to mapState is not set yet
     return context.store.state.page.acf.template;
   },
-   head () {
+  head () {
 		return {
 			title: this.pageData.meta_short_title || this.pageMeta.title,
 			meta: [
