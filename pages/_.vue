@@ -33,9 +33,24 @@ export default {
     //access to mapState is not set yet
     return context.store.state.page.acf.template;
   },
+   head () {
+		return {
+			title: this.pageData.meta_short_title || this.pageMeta.title,
+			meta: [
+				{ hid: 'description', name: 'description', content: this.pageData.meta_description || this.pageMeta.description },
+				{ property: 'og:title', content: this.pageData.meta_short_title || this.pageMeta.title },
+				{ property: 'og:description', content: this.pageData.meta_description || this.pageMeta.description },
+				{ property: 'og:image', content: this.pageData.meta_share_image ? this.state.contentBaseURL + this.pageData.meta_share_image : this.pageMeta.shareImage },
+				{ name: 'twiter:description', content: this.pageData.meta_description || this.pageMeta.description },
+        { name: 'twitter:image', content: this.pageData.meta_share_image ? this.state.contentBaseURL + this.pageData.meta_share_image :  this.pageMeta.shareImage }
+      ]
+		}
+	},
   computed: {
     ...mapState({
-      pageData: state => state.page
+      pageData: state => state.page,
+      pageMeta: state => state.pageMeta,
+      contentBaseURL: state => state.contentBaseURL
     })
   }
 }

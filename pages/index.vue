@@ -31,22 +31,22 @@ export default {
   layout: 'default',
   head () {
 		return {
-			title: this.pageData.meta_short_title || 'BridgeBio | people',
+			title: this.pageData.meta_short_title || this.pageMeta.title,
 			meta: [
-				{ hid: 'description', name: 'description', content: this.pageData.meta_description || 'Targeting Genetic Diseases at Their Source' },
-				{ property: 'og:title', content: this.pageData.meta_short_title || 'BridgeBio | people' },
-				{ property: 'og:description', content: this.pageData.meta_description || 'Targeting Genetic Diseases at Their Source' },
-				{ property: 'og:type', content: 'website' },
-				{ property: 'og:image', content: this.pageData.meta_share_image ? 'https://bbio2019.azurewebsites.net' + this.pageData.meta_share_image : 'https://bbio2019.azurewebsites.net/wp-content/uploads/2019/02/BridgeBio_Share.png' },
-				{ name: 'twitter:card', content: 'summary_large_image' },
-				{ name: 'twiter:description', content: this.pageData.meta_description || 'Targeting Genetic Diseases at Their Source' },
-        { name: 'twitter:image', content: this.pageData.meta_share_image ? 'https://bbio2019.azurewebsites.net' + this.pageData.meta_share_image : 'https://bbio2019.azurewebsites.net/wp-content/uploads/2019/02/BridgeBio_Share.png' }
+				{ hid: 'description', name: 'description', content: this.pageData.meta_description || this.pageMeta.description },
+				{ property: 'og:title', content: this.pageData.meta_short_title || this.pageMeta.title },
+				{ property: 'og:description', content: this.pageData.meta_description || this.pageMeta.description },
+				{ property: 'og:image', content: this.pageData.meta_share_image ? this.state.contentBaseURL + this.pageData.meta_share_image : this.pageMeta.shareImage },
+				{ name: 'twiter:description', content: this.pageData.meta_description || this.pageMeta.description },
+        { name: 'twitter:image', content: this.pageData.meta_share_image ? this.state.contentBaseURL + this.pageData.meta_share_image :  this.pageMeta.shareImage }
       ]
 		}
 	},
   computed: {
     ...mapState({
-      pageData: state => state.page
+      pageData: state => state.page,
+      pageMeta: state => state.pageMeta,
+      contentBaseURL: state => state.contentBaseURL
     })
   }
 }

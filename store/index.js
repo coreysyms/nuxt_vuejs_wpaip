@@ -1,7 +1,13 @@
 import axios from 'axios';
 
-export const state = () => ({
+export const state = (store) => ({
   apiBaseURL: 'http://35.231.46.205/wp-json/wp/v2/',
+  contentBaseURL: 'http://content.bridgebio.com',
+  pageMeta: { 
+      description: 'Targeting Genetic Diseases at Their Source',
+      title: 'BridgeBio',
+      shareImage: 'http://35.231.46.205/wp-content/uploads/2019/02/BridgeBio_Share.png'
+  },
   headerNav: null,
   footerNav: null,
   pages: null,
