@@ -9,8 +9,8 @@
 1. Deployment Manager > Deployments
 2. Click on the deployment instance
 3. Click on the SSH button to launch
-b. `sudo nano /etc/apache2/apache2.conf`
-a. Find and change the .htaccess file to the below
+4. `sudo nano /etc/apache2/apache2.conf`
+5. Find and change the .htaccess file to the below
 
 ```
 <Directory /var/www/>
@@ -50,11 +50,11 @@ add_action( 'rest_api_init', function () {
 Next we need to create the menus in wordpress. This is simple.
 1. Go to Appearance > Menus
 2. Create a new `headerNav` menu, make sure it is named that
-a. Associate the pages you would like with that menu, save
-3. Create a new `footerNav` menu, make sure it is named that
-a. Associate the pages you would like with that menu, save
-4. Now you can navigate to `…/wp-json/wp/v2/initroutes/navigation`
-5. You should see a returned object with each nav item for both menus
+3. Associate the pages you would like with that menu, save
+4. Create a new `footerNav` menu, make sure it is named that
+5. Associate the pages you would like with that menu, save
+6. Now you can navigate to `…/wp-json/wp/v2/initroutes/navigation`
+7. You should see a returned object with each nav item for both menus
 
 
 ## Vue Build Setup
