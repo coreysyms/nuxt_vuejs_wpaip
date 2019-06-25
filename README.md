@@ -140,3 +140,7 @@ Voilà! Your Nuxt.js application is now hosted on Google App Engine!
 The `instance_class` attribute in your `app.yaml` file sets the class of your app instance. Instance F2 is not completely free, but has the minimum memory needed to run a Nuxt application.
 
 Make sure to put the project-id and not the project-name in the deploy command. These are two different things but easy to mix up.
+
+
+## Setting up Google Cloud Storage for Images
+Follow this link https://geekflare.com/wordpress-media-google-cloud-storage/
