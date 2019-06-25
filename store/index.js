@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export const state = (store) => ({
-  apiBaseURL: 'http://35.231.46.205/wp-json/wp/v2/',
-  contentBaseURL: 'http://content.bridgebio.com',
+  apiBaseURL: 'this should be the base of the api endpoint IE http://35.231.46.205/wp-json/wp/v2/',
+  contentBaseURL: 'this should be the human readable url to content IE http://content.bridgebio.com',
   pageMeta: { 
-      description: 'Targeting Genetic Diseases at Their Source',
-      title: 'BridgeBio',
-      shareImage: 'http://35.231.46.205/wp-content/uploads/2019/02/BridgeBio_Share.png'
+      description: 'meta default description',
+      title: 'meta default site title',
+      shareImage: 'absolute path to default share image'
   },
   headerNav: null,
   footerNav: null,
