@@ -4,7 +4,7 @@
 
 ## Wordpress Set Up for Goggle Compute Engine
 
-##### 1. Allow api endpoints without the index.php extension
+##### 1. Allow api endpoints without the index.php extension (this may not be needed for Azure)
 
 1. Deployment Manager > Deployments
 2. Click on the deployment instance
