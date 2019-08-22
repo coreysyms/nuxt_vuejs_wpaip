@@ -2,26 +2,7 @@
 
 > starter pack for API connected frontend to WP backend
 
-## Wordpress Set Up for Goggle Compute Engine
-
-##### 1. Allow api endpoints without the index.php extension (this may not be needed for Azure)
-
-1. Deployment Manager > Deployments
-2. Click on the deployment instance
-3. Click on the SSH button to launch
-4. `sudo nano /etc/apache2/apache2.conf`
-5. Find and change the .htaccess file to the below
-
-```
-<Directory /var/www/>
-   Options Indexes FollowSymLinks
-   AllowOverride ALL <——(edit from none)
-   Require all granted
-</Directory>
-```
-
-
-##### 2. Extend the WP Rest API to allow menus for navigation
+## Extend the WP Rest API to allow menus for navigation
 What we need to do here is extend the WP REST API to allow a new custom endpoint. WP doesn’t by default return the menus to us. We need to go get them and expose them to the API
 1. Go to wordpress admin
 2. Appearance menu > theme editor
@@ -141,6 +122,23 @@ The `instance_class` attribute in your `app.yaml` file sets the class of your ap
 
 Make sure to put the project-id and not the project-name in the deploy command. These are two different things but easy to mix up.
 
+## Wordpress Set Up for Goggle Compute Engine
+
+## Allowing api endpoints without the 'index.php' extension on GCP
+
+1. Deployment Manager > Deployments
+2. Click on the deployment instance
+3. Click on the SSH button to launch
+4. `sudo nano /etc/apache2/apache2.conf`
+5. Find and change the .htaccess file to the below
+
+```
+<Directory /var/www/>
+   Options Indexes FollowSymLinks
+   AllowOverride ALL <——(edit from none)
+   Require all granted
+</Directory>
+```
 
 ## Setting up Google Cloud Storage for Images
 Follow this link https://geekflare.com/wordpress-media-google-cloud-storage/
