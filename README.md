@@ -142,7 +142,7 @@ Make sure to put the project-id and not the project-name in the deploy command. 
 Follow this link https://geekflare.com/wordpress-media-google-cloud-storage/
 
 
-# After set up make changes to /store.js
+# After set up make changes to /store/index.js
 ```
 apiBaseURL: 'this should be the base of the api endpoint IE http://XYXYXY/wp-json/wp/v2/',
 contentBaseURL: 'this should be the human readable url to content if you like'
