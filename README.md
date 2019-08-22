@@ -122,8 +122,6 @@ The `instance_class` attribute in your `app.yaml` file sets the class of your ap
 
 Make sure to put the project-id and not the project-name in the deploy command. These are two different things but easy to mix up.
 
-## Wordpress Set Up for Goggle Compute Engine
-
 ## Allowing api endpoints without the 'index.php' extension on GCP
 
 1. Deployment Manager > Deployments
