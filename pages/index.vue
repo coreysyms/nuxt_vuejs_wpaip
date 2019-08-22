@@ -15,7 +15,7 @@
           class="button--green"
         >Documentation</a>
         <a
-          href="https://github.com/ConnectionsMedia/boilerplate"
+          href="https://github.com/coreysyms/nuxt_vuejs_wpaip"
           target="_blank"
           class="button--grey"
         >GitHub</a>
