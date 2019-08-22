@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const state = (store) => ({
-  apiBaseURL: 'this should be the base of the api endpoint IE http://35.231.46.205/wp-json/wp/v2/',
-  contentBaseURL: 'this should be the human readable url to content IE http://content.bridgebio.com',
+  apiBaseURL: 'this should be the base of the api endpoint IE http://XYXYXY/wp-json/wp/v2/',
+  contentBaseURL: 'this should be the human readable url to content if you like',
   pageMeta: { 
       description: 'meta default description',
       title: 'meta default site title',
