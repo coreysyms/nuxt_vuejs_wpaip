@@ -1,6 +1,13 @@
 # NuXT + Vue + WP boilerplate
 
-> starter pack for API connected frontend to WP backend
+> starter pack for API connected frontend to WP backend.
+
+## OUT OF THE BOX cool features
+1. store caching for "50 pages" on init
+2. SEO handling on the template
+3. 3 level navigation
+4. "cascade" style pages, create pages via WP on the fly, allow the default page, or create a page in code that superceeds.
+5. "layout" rendering based off WP prefs
 
 ## Extend the WP Rest API to allow menus for navigation
 What we need to do here is extend the WP REST API to allow a new custom endpoint. WP doesn’t by default return the menus to us. We need to go get them and expose them to the API
